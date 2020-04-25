@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="291.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+   <children>
+      <Circle fx:id="joystickBorderCircle" layoutX="718.0" layoutY="157.0" radius="65.0" stroke="BLACK" strokeType="INSIDE">
+         <fill>
+            <RadialGradient centerX="0.5057803468208093" centerY="0.5147783251231528" cycleMethod="REFLECT" focusAngle="69.44" radius="0.33544303797468356">
+               <stops>
+                  <Stop color="#000000d6" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill></Circle>
+      <Button layoutX="13.0" layoutY="15.0" mnemonicParsing="false" onAction="#connectWindow" prefHeight="28.0" prefWidth="72.0" text="Connect" />
+      <Button layoutX="90.0" layoutY="15.0" mnemonicParsing="false" onAction="#loadCSVFile" prefHeight="28.0" prefWidth="80.0" text="Load data" />
+      <Button layoutX="175.0" layoutY="15.0" mnemonicParsing="false" onAction="#calculatePath" prefHeight="28.0" prefWidth="113.0" text="Calculate path" />
+      <Canvas fx:id="MapDisplayer" height="225.0" layoutX="14.0" layoutY="48.0" onMousePressed="#mapClicked" width="282.0" />
+      <RadioButton fx:id="autoPilotRadioButton" disable="true" layoutX="307.0" layoutY="14.0" mnemonicParsing="false" onAction="#autoPilot" text="Autopilot">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="mode" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="manualRadioButton" disable="true" layoutX="620.0" layoutY="16.0" mnemonicParsing="false" onAction="#manual" text="Manual" toggleGroup="$mode">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </RadioButton>
+      <TextArea fx:id="autoPilot" layoutX="307.0" layoutY="48.0" prefHeight="225.0" prefWidth="282.0" />
+      <Circle fx:id="joystickControlCircle" fill="#636b72" layoutX="718.0" layoutY="157.0" radius="25.0" stroke="BLACK" strokeType="INSIDE">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+            </Lighting>
+         </effect>
+      </Circle>
+      <Label layoutX="668.0" layoutY="60.0" text="🡄 aileron 🡆">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="744.0" layoutY="143.0" rotate="90.0" text="🡄 elevator 🡆">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Slider fx:id="rudderS" blockIncrement="0.1" disable="true" layoutX="638.0" layoutY="232.0" max="1.0" min="-1.0" onMouseDragged="#onRudderDragged" prefWidth="150.0" />
+      <Slider fx:id="throttleS" blockIncrement="0.05" disable="true" layoutX="628.0" layoutY="87.0" max="1.0" onMouseDragged="#onThrottleDragged" orientation="VERTICAL" prefHeight="150.0" value="0.5" />
+      <Label layoutX="579.0" layoutY="148.0" rotate="-90.0" text="throttle">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="689.0" layoutY="246.0" text="rudder">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="statusLabel" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="274.0" text="Status" />
+   </children>
+</Pane>

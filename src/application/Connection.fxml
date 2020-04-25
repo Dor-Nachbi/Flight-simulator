@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="249.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConnectionWindow">
+   <children>
+      <Text layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP:" />
+      <Text layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port:" />
+      <TextField fx:id="varIP" layoutX="47.0" layoutY="14.0" prefHeight="25.0" prefWidth="156.0" />
+      <TextField fx:id="varPort" layoutX="47.0" layoutY="49.0" prefHeight="25.0" prefWidth="73.0" />
+      <Button layoutX="153.0" layoutY="83.0" mnemonicParsing="false" onAction="#onConnect" prefHeight="25.0" prefWidth="82.0" text="Connect" />
+      <Button layoutX="14.0" layoutY="83.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="82.0" text="Cancel" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>
